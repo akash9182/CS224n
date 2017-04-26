@@ -27,7 +27,7 @@ def softmax(x):
     x -- You are allowed to modify x in-place
     """
     orig_shape = x.shape
-
+    #x.shape by default gives column value
     if len(x.shape) > 1:
         # Matrix
         ### YOUR CODE HERE

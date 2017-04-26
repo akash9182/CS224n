@@ -89,7 +89,7 @@ rulesepcolor=\color{blue},#1
 
 \newcommand{\myalgsheader}[0]
 {\myheader{Stanford University, Department of Computer Science}
-{Computer Science 224D}{Spring 2017}{Section 1}}
+{Computer Science 224n}{Spring 2017}{Section 1}}
 
 % Running head (goes at top of each page, beginning with page 2.
 % Must precede by \pagestyle{myheadings}.
@@ -97,7 +97,7 @@ rulesepcolor=\color{blue},#1
 {\markright{{\it {#1}, {#2}}}}
 
 \newcommand{\myrunningalgshead}[2]
-{\myrunninghead{Computer Science 224D}{{#1}}}
+{\myrunninghead{Computer Science 224n}{{#1}}}
 
 \newcommand{\myrunninghwhead}[2]
 {\myrunningalgshead{Solution to Assignment {#1}, Problem {#2}}}
@@ -158,5 +158,84 @@ where $({\bf x} + c)$ means adding the constant $c$ to every dimension of ${\bf 
 
 \clearpage
 \pagestyle{myheadings}
+\myrunninghwhead{1}{1 (softmax)}
+
+\myhwtitle{1}{1(b)}{\solutionsAuthor}
+\bigskip
+
+\noindent Given an input matrix of \texttt{N}-rows and \texttt{d}-columns, compute the softmax prediction for each row.
+Write your implementation in \texttt{q1\_softmax.py}. You may test by executing python \texttt{q1\_softmax.py}.\\
+
+\noindent \textbf{Note:} The provided tests are not exhaustive. Later parts of the assignment will reference this code so it is
+important to have a correct implementation. Your implementation should also be efficient and vectorized
+whenever possible. A non-vectorized implementation will not receive full credit!\vspace{5mm}
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\begin{python}
+import numpy as np
+
+def softmax(x):
+#x.shape by default gives column value
+    if len(x.shape) > 1:
+        # Matrix
+        ### YOUR CODE HERE
+        c = np.max(x, axis=1).reshape(-1,1) #-1 here means, internally  numpy is just calculating, to get the missing dimension.
+        x = np.exp(x-c) / np.sum(np.exp(x-c), axis=1).reshape(-1,1)
+        print (np.shape(x)) 
+        ### END YOUR CODE
+    else:
+        # Vector
+        ### YOUR CODE HERE
+        c = np.max(x)
+        x = np.exp(x-c) / np.sum(np.exp(x-c))
+        ### END YOUR CODE
+
+    assert x.shape == orig_shape
+    return x
+\end{python}
+
+\clearpage 
+
+\myrunninghwhead{1}{2 (Neural Networks)}
+
+\myhwtitle{1}{2(a)}{\solutionsAuthor}
+
+\bigskip
+
+\noindent Derive the gradients of the sigmoid function and show that it can be rewritten as a function of the
+function value (i.e. in some expression where only $\sigma(x)$, but not $x$, is present). Assume that the input
+$x$ is a scalar for this question.\vspace{5mm}
+
+\noindent\rule{\textwidth}{0.4pt}\vspace{5mm}
+
+\noindent Denote the sigmoid function as $\sigma(z)$,
+\begin{equation}
+\sigma(z) = \frac{1}{1 + e^{-z}},
+\end{equation}
+
+Using chain rule, 
+
+\begin{align*}
+\sigma^{\prime}(z)   &= \frac{-1}{(1+e^{-z})^{2}}\times(-e^{-z})\\
+                                 &= \(\frac{1}{1 + e^{-z}} \left(\frac{e^{-z}}{1 + e^{-z}} \right) \\
+                                 &= \frac(1){1 + e^{-z}} \\
+                                 &= \sigma(z) - \sigma^{2}(z)\\
+                                 &= \sigma(z)(1 - \sigma(z))
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
