@@ -219,10 +219,31 @@ Using chain rule,
 \begin{align*}
 \sigma^{\prime}(z)   &= \frac{-1}{(1+e^{-z})^{2}}\times(-e^{-z})\\
                                  &= \(\frac{1}{1 + e^{-z}} \left(\frac{e^{-z}}{1 + e^{-z}} \right) \\
-                                 &= \frac(1){1 + e^{-z}} \\
-                                 &= \sigma(z) - \sigma^{2}(z)\\
+                                 &= \left(\frac{1}{1 + e^{-z}} \right) \left(\frac{1 + e^{-z}} {1 + e^{-z}} - \frac{1}{1 + e^{-z}} \right) \\
                                  &= \sigma(z)(1 - \sigma(z))
-\end{align*}
+\end{align*}                                 
+
+\clearpage
+
+\myhwtitle{1}{2(b)}{\solutionsAuthor}
+\bigskip
+
+\noindent Derive the gradient with regard to the inputs of a softmax function when cross entropy loss is used for
+evaluation, i.e. find the gradients with respect to the softmax input vector $\theta$, when the prediction is
+made by $\hat{y} = \textrm{softmax}(\theta)$. Remember the cross entropy function is
+\begin{equation}
+\textrm{CE}({\bf y},{\bf\hat{y}}) = -\sum_{i}{y_{i}\log{\hat{y_{i}}}}
+\end{equation}
+where $y$ is the one-hot label vector, and $\hat{y}$ is the predicted probability vector for all classes. \vspace{2mm}\\
+\noindent {\bf Hint}: you might want to consider the fact many elements of $y$ are zeros, and assume that only the $k$-th dimension
+of $y$ is one.\vspace{5mm}
+
+\noindent\rule{\textwidth}{0.4pt}\vspace{5mm}
+
+Starting with, cross entropy
+
+
+
 
 
 

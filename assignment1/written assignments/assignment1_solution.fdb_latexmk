@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1493220884 "assignment1_solution.tex" "assignment1_solution.pdf" "assignment1_solution" 1493220884
+["pdflatex"] 1493286475 "assignment1_solution.tex" "assignment1_solution.pdf" "assignment1_solution" 1493286477
   "/etc/texmf/web2c/texmf.cnf" 1489000050 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -201,11 +201,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1489036584 80420 2ccc9c96b7b58c4e7cc3884cc97eb042 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1489036577 856210 fd0f62b246aa7267216700a7d68caef0 ""
-  "assignment1_solution.aux" 1493220884 662 b2b94621371df8d9296b8bf5bec1b851 ""
-  "assignment1_solution.out" 1493220884 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "assignment1_solution.tex" 1493220879 6410 b2b363a1917ea3ae9863d86c4874d9c8 ""
+  "assignment1_solution.aux" 1493286477 662 b2b94621371df8d9296b8bf5bec1b851 ""
+  "assignment1_solution.out" 1493286476 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "assignment1_solution.tex" 1493286473 7293 bb46753a345ca15f41b79244849844de ""
   (generated)
+  "assignment1_solution.out"
   "assignment1_solution.log"
   "assignment1_solution.aux"
   "assignment1_solution.pdf"
-  "assignment1_solution.out"

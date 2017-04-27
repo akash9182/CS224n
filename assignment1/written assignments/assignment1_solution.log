@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.3.9)  26 APR 2017 21:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.3.9)  27 APR 2017 15:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -909,7 +909,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.225 \end{align*}
+l.224 \end{align*}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -922,27 +922,30 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.225 \end{align*}
+l.224 \end{align*}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 241.
 [3
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 241.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 262.
+ [4
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 262.
  (./assignment1_solution.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 241.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 241.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 262.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 262.
 Package rerunfilecheck Info: File `assignment1_solution.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 241.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 262.
  ) 
 Here is how much of TeX's memory you used:
- 19770 strings out of 494985
- 352703 string characters out of 6180357
+ 19772 strings out of 494985
+ 352721 string characters out of 6180357
  489714 words of memory out of 5000000
  22511 multiletter control sequences out of 15000+600000
  11023 words of font info for 42 fonts, out of 8000000 for 9000
@@ -960,10 +963,10 @@ blic/amsfonts/cm/cmsltt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 nts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on assignment1_solution.pdf (3 pages, 135695 bytes).
+Output written on assignment1_solution.pdf (4 pages, 139639 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
- 31 named destinations out of 1000 (max. 500000)
+ 114 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
+ 33 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
