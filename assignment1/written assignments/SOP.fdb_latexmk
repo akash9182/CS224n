@@ -1,0 +1,18 @@
+# Fdb version 3
+["pdflatex"] 1493372730 "SOP.tex" "SOP.pdf" "SOP" 1493372730
+  "/etc/texmf/web2c/texmf.cnf" 1489000050 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1254151887 20571 b8bd218bf2e18b4f5817ee643cd9c515 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo" 1254151887 9053 a28d9b3c915d12545f3d5e7c4986be20 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1489036584 80420 2ccc9c96b7b58c4e7cc3884cc97eb042 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1489036577 856210 fd0f62b246aa7267216700a7d68caef0 ""
+  "SOP.aux" 1493372730 8 a94a2480d3289e625eea47cd1b285758 ""
+  "SOP.tex" 1493372728 269 efaea607fb7eb0c96e2c3eae6214c32b ""
+  (generated)
+  "SOP.aux"
+  "SOP.log"
+  "SOP.pdf"

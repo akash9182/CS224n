@@ -240,16 +240,57 @@ of $y$ is one.\vspace{5mm}
 
 \noindent\rule{\textwidth}{0.4pt}\vspace{5mm}
 
-Starting with, cross entropy
+Cross entropy error function for multi-class output,
+\begin{equation}
+\textrm{CE}({\bf y},{\bf\hat{y}}) = -\sum_{i}{y_{i}\log{\hat{y_{i}}}}
+\end{equation}
+
+Computing the gradient yields, 
+
+\begin{equation}
+\frac{\partial(\textrm{CE})}{\partial{\hat{y}_{i}}} = -\frac{y_{j}}{\hat{y}_i}\
+\label{eq:2b 1}
+\end{equation}
 
 
+\begin{align}
+\frac{\partial(\textrm{CE})}{\partial{\theta_{k}}} = & \frac{\partial(\textrm{CE})}{\partial{\hat{y}_{i}}}\frac{\partial{\hat{y}_{i}}}{\partial{\theta_{k}}} \\
+                                                                        = & -\frac{y_{j}}{\hat{y}_{i}}\frac{\partial{\hat{y}_{i}}}{\partial{\theta_{k}}}
+\end{align}
 
+Calculating the partial derivative of $\hat{y_{i}}$ (derivation using the quotient rule):
 
+\begin{align}
+\text{if} \; i = k :& \frac{\partial y_i}{\partial \theta_i}= \frac{\partial  \frac{e^{\theta_i}}{\Sigma_\theta}}{\partial \theta_i} \\
+												=& \frac{e^{\theta_i}\Sigma_\theta - e^{\theta_i}e^{\theta_i}}{\Sigma_\theta^2} \\
+												=&\frac{e^{\theta_i}}{\Sigma_\theta}\frac{\Sigma_\theta - e^{\theta_i}}{\Sigma_\theta} \\
+												=& \frac{e^{\theta_i}}{\Sigma_\theta}(1-\frac{e^{\theta_i}}{\Sigma_\theta}) =  \hat{y_i} (1 - \hat{y_i}) \label{eq:2b 2}
+\end{align}
+\begin{align}
+												\text{if} \; i \neq k :& \frac{\partial y_i}{\partial \theta_j} =\frac{\partial \frac{e^{\theta_i}}{\Sigma_\theta}}{\partial \theta_j}\\
+												= &\frac{0 - e^{\theta_i}e^{\theta_j}}{\Sigma_\theta^2} \\
+												=& -\frac{e^{\theta_i}}{\Sigma_\theta} \frac{e^{\theta_j}}{\Sigma_\theta} \\
+												=& -\hat{y_i} y_k \label{eq:2b 3}
+\end{align}
 
-
-
-
-
+Combining Equations~\ref{eq:2b 1},~\ref{eq:2b 2},~\ref{eq:2b 3}, yields
+\begin{equation}
+\frac{\partial(\textrm{CE})}{\partial{\theta_{k}}} = \begin{cases}
+-y_{j}(1 - \hat{y}_{k})&\text{ for }i=k \\
+y_{j}\hat{y}_{k}&\text{ for }i\neq k
+\end{cases}
+\end{equation}
+Requiring $y_{j}$ to be non-zero, imposes that the auxiliary condition, $k=j$ and $y_{j}=1$, hence it follows immediately,
+\begin{equation}
+\frac{\partial(\textrm{CE})}{\partial{\theta_{j}}} = \begin{cases}
+(\hat{y}_{j} - 1)&\text{ for }i=j\label{eq:2b case 1} \\
+\hat{y}_{j}&\text{ for }i\neq j
+\end{cases}
+\end{equation}
+Which is equivalent to
+\begin{equation}
+\frac{\partial(\textrm{CE})}{\partial{\boldsymbol\theta}} = \bf{\hat{y}} - \bf{y}
+\end{equation}
 
 
 
