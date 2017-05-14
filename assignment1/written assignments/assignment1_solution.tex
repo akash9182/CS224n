@@ -292,9 +292,66 @@ Which is equivalent to
 \frac{\partial(\textrm{CE})}{\partial{\boldsymbol\theta}} = \bf{\hat{y}} - \bf{y}
 \end{equation}
 
+\clearpage
 
+\myhwtitle{1}{2(c)}{\solutionsAuthor}
+\bigskip
 
+\noindent Derive the gradients with respect to the inputs x to an one-hidden-layer neural network (that is, find
+$\partial{J}/\partial{\bf x}$ where $J$ is the cost function for the neural network). The neural network employs sigmoid activation
+function for the hidden layer, and softmax for the output layer. Assume the one-hot label vector is $y$,
+and cross entropy cost is used. (feel free to use $\sigma^{\prime}(x)$ as the shorthand for sigmoid gradient, and feel free
+to define any variables whenever you see fit). \vspace{5mm}\\
 
+\noindent\rule{\textwidth}{0.4pt}\vspace{5mm}
+In order to simplify the notation used to solve the problem, define the following terms:
+\begin{align}
+{\bf x}^{(2)} \equiv & \quad{\bf h} \\
+{\bf z}_{i}     \equiv& \quad{\bf x^{(i)}\textrm{W}_{i} + b_{i}}
+\end{align}
+Now, to calculate $\partial{J}/\partial{\bf x^{1}}$, one can use the back propagation algorithm. Starting with the chain rule and then results from Question 2(b):
+
+\begin{equation}
+\frac{\partial{J}}{\partial{\bf x}^{(2)}}  = \left( \left(\frac{\partial{J}}{\partial{\bf z}_{2}}  \frac{\partial{\bf z}_{2}}{\partial{\bf x}^{(2)}}\right) . \frac{\partial{\bf x}^{(2)}}{\partial{\bf z}_{1}} \right) * \frac{\partial{\bf z}_{1}}{\partial{\bf x}^{(1)}}
+\end{equation}
+
+\begin{equation}
+\frac{\partial{J}}{\partial{\bf z}_{2}} = \bf{\hat{y}} - \bf{y}
+\end{equation}
+and
+\begin{equation}
+\frac{\partial{\bf z}_{i}}{\partial{{\bf x}^{(i)}}} = {\bf \textrm{W}^{\top}_{i}}\label{eq: 2c 1}
+\end{equation}
+Sigmoid ($\sigma$) derivative can be found in Question 2(a), but we define:
+\begin{equation}
+\frac{\partial{{\bf x}^{(2)}}}{\partial{{\bf z}_{1}}}\equiv\sigma^{\prime}(z_{1})%{\bf x}^{(2)}\cdot(1  - {\bf x}^{(2)})
+\end{equation}
+Combining these, and using $\cdot$ to denote element-wise product:
+\begin{equation}
+\frac{\partial{J}}{\partial{z_{i}}} = (\bf{\hat{y}} - \bf{y}){\bf \textrm{W}^{\top}_{2}}\cdot\sigma^{\prime}(z_{1})
+\end{equation}
+Finally, using the results from Equation~\ref{eq: 2c 1} (but for the first layer):
+\begin{equation}
+\frac{\partial{J}}{\partial{{\bf x}^{(1)}}} = (\bf{\hat{y}} - \bf{y}){\bf \textrm{W}^{\top}_{2}}\cdot\sigma^{\prime}(z_{1})\cdot{\bf \textrm{W}^{\top}_{1}}
+\end{equation}
+
+\clearpage
+
+\myhwtitle{1}{2(d)}{\solutionsAuthor}
+\bigskip
+\noindent How many parameters are there in this neural network, assuming the input is $\textrm{D}_{x}$-dimensional,
+the output is $\textrm{D}_{y}$-dimensional, and there are H hidden units?\vspace{5mm}
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\noindent $\bf{\textrm{W}}_{1}$ must have dimensions:  $\textrm{D}_{x}\times\textrm{H}$. The bias ($\bf{b}_{1}$) for the first layer must have
+dimensions $\textrm{H}$. Adding these two together, yields $(\textrm{D}_{x} + 1)\times\textrm{H}$. Proceeding to the second layer,
+there must be $\textrm{H}\times\textrm{D}_{y}$ parameters associated with the weight matrix ${\bf\textrm{W}}_{2}$. The bias ($\bf{b}_{2}$)
+for the second layer must have dimensions $\textrm{D}_{y}$ elements. This yields, 
+\begin{equation}
+(\textrm{D}_{x} + 1)\times\textrm{H} + \textrm{D}_{y}\times(\textrm{H}+1)
+\end{equation}
+weights, for each input vector of dimensions $\textrm{D}_{x}$.
 
 
 
