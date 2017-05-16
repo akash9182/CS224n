@@ -353,6 +353,62 @@ for the second layer must have dimensions $\textrm{D}_{y}$ elements. This yields
 \end{equation}
 weights, for each input vector of dimensions $\textrm{D}_{x}$.
 
+\clearpage
+
+\myrunninghwhead{1}{3 (word2vec)}
+
+\myhwtitle{1}{3(a)}{\solutionsAuthor}
+\bigskip
+\noindent Assume you are given a predicted word vector ${\boldsymbol v}_{c}$ corresponding to the center word $c$ for
+\texttt{skipgram}, and word prediction is made with the \texttt{softmax} function found in \texttt{word2vec} models
+\begin{equation}
+{\hat{\boldsymbol y}}_{\boldsymbol o} = p(~{\boldsymbol o} \mid {\boldsymbol c}~) = \frac{\exp{({\boldsymbol u}^{\top}_{o}{\boldsymbol v}_{c})}}{\sum^{\vert{W}\vert}_{j=1}\exp{({\boldsymbol u}^{\top}_{j}{\boldsymbol v}_{c})}}
+\end{equation}
+where $w$ denotes the $w$-th word and ${\boldsymbol u}_{w}$ ($w=1,...,\vert\textrm{W}\vert$)  are the `output' word vectors for all words in the vocabulary ($v^{\prime}_{w}$ in the lecture notes). Assume the cross entropy cost is applied to this prediction and word $o$ is the expected word (the $o$-th element of the one-hot label vector is one), derive the gradients with respect to ${\boldsymbol v}_{c}$.\\
+
+\noindent \textbf{Hint:} It will be helpful to use notation from question 2. For instance, letting ${\hat{\boldsymbol y}}$ be the vector of the softmax
+prediction for every word, ${\boldsymbol y}$ as the expected word vector, and the loss function
+
+\begin{equation}
+J_{\textrm{softmax-CE}}({\boldsymbol o}, {\boldsymbol v}_{c}, {\boldsymbol U}) = CE({\boldsymbol y},{\hat{\boldsymbol y}})
+\end{equation}
+where ${\boldsymbol U} = [ {\boldsymbol u}_{1}, {\boldsymbol u}_{2},...,{\boldsymbol u}_{\vert\textrm{W}\vert}]$ is the matrix of all the output vectors. \textit{Make sure you state the orientation of your vectors and matrices.}\vspace{5mm}
+
+Applying cross-entropy cost to the above softmax probability defined above:
+\begin{equation}
+J =-\log{p} = - {\boldsymbol u}_{o}^{\top}{\boldsymbol v}_{c} + \log\sum^{\vert{V}\vert}_{j=1}\exp{({\boldsymbol u}_{j}^{\top}{\boldsymbol v}_{c})}
+\end{equation}
+Let $z_{j}={\boldsymbol u}_{j}^{\top}{\boldsymbol v}_{c}$, and $\delta^{i}_{j}$ be the indicator function, then
+\begin{equation}
+\frac{\partial J}{\partial{z_{k}}} = - \delta^{i}_{k} + \frac{\exp{({\boldsymbol u}_{i}^{\top}{\boldsymbol v}_{c})}}{\sum^{\vert{V}\vert}_{j=1}\exp{({\boldsymbol u}_{j}^{\top}{\boldsymbol v}_{c})}}
+\end{equation}
+Now, using the chain rule, we can calculate,
+\begin{align}
+\frac{\partial J}{\partial{{\boldsymbol v}_{c}}} =& \frac{\partial J}{\partial{{\boldsymbol z}}}\frac{\partial{{\boldsymbol z}}}{\partial{{\boldsymbol v}_{c}}} \\
+                                                                    =& \sum^{\vert{V}\vert}_{j=1}{\boldsymbol u}_{j}^{\top}\left(\frac{e^{z_{j}}}{\sum^{\vert{V}\vert}_{k=1}e^{z_{k}}} -  1\right) \\
+                                                                    =& \sum^{\vert{V}\vert}_{k=1}{\boldsymbol P}({\boldsymbol u}_{j} \vert {\boldsymbol v}_{c} ){\boldsymbol u}_{j} - {\boldsymbol u}_{j}
+\end{align}
+
+\clearpage
+
+\myhwtitle{1}{3(b)}{\solutionsAuthor}
+
+\bigskip
+\noindent As in the previous problem, derive gradients for the `output' word vectors ${\boldsymbol u}_{w}$'s (including ${\boldsymbol u}_{o}$)\vspace{5mm}
+%TODO
+%\hat{\boldsymbol r} -> {\boldsymbol v}_{c}
+% {\boldsymbol w}^{\top}_{i} -> {\boldsymbol u}^{\top}_{0}
+% (in sum) {\boldsymbol w}^{\top}_{k} -> {\boldsymbol u}^{\top}_{k}
+% {\boldsymbol w}_{j} -> {\boldsymbol u}_{j}
+\noindent\rule{\textwidth}{0.4pt}\vspace{5mm}
+This follows immediately from the chain rule:
+\begin{align}
+\frac{\partial J}{\partial{\boldsymbol u}_{j}} = &\frac{\partial J}{\partial{{\boldsymbol z}}}\frac{\partial{{\boldsymbol z}}}{\partial{\boldsymbol u}_{j}} \\
+                                                                  = &{\boldsymbol v}_{c}\left(\frac{\exp{({\boldsymbol u}^{\top}_{0}{\boldsymbol v}_{c})}}{\sum^{\vert{V}\vert}_{j=1}\exp{({\boldsymbol u}^{\top}_{j}{\boldsymbol v}_{c})}} - \delta^{0}_{j}\right)
+\end{align}
+\clearpage
+
+
 
 
 
