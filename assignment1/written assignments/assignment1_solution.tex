@@ -407,7 +407,105 @@ This follows immediately from the chain rule:
 \end{align}
 \clearpage
 
+\myhwtitle{1}{3(c)}{\solutionsAuthor}
+\bigskip
+%TODO
+%\hat{\boldsymbol r} -> {\boldsymbol v}_{c}
+% {\boldsymbol w}^{\top}_{i} -> {\boldsymbol u}^{\top}_{0}
+% (in sum) {\boldsymbol w}^{\top}_{k} -> {\boldsymbol u}^{\top}_{k}
+\noindent Repeat part (a) and (b) assuming we are using the negative sampling loss for the predicted vector ${\boldsymbol v}_{c}$, and 
+the expected output word is ${\boldsymbol o}({\boldsymbol u}_{o})$. Assume that $K$ negative samples (words) are drawn, and they are ${\boldsymbol u}_{1},...,{\boldsymbol u}_{k}$, respectively for simplicity of notation ($k\in\{1,...,K\}$ and $o\notin\{1,...,K\}$). Again for a given word, ${\boldsymbol o}$, denote its output vector as ${\boldsymbol u}_{o}$. The negative sampling loss function in this case is,
+\begin{equation}
+J({\boldsymbol u}_{o}, {\boldsymbol v}_{c}, {\boldsymbol U}) = -\log(\sigma( {\boldsymbol u}^{\top}_{o}{\boldsymbol v}_{c})) - \sum^{K}_{k=1}\log(\sigma(- {\boldsymbol u}^{\top}_{k}{\boldsymbol v}_{c}))
+\end{equation}
+where $\sigma(\cdot)$ is the sigmoid function.\\
 
+\noindent After you've done this, describe with one sentence why this cost function is much more efficient to
+compute than the softmax-CE loss (you could provide a speed-up ratio, i.e. the runtime of the softmax-CE loss divided by the
+runtime of the negative sampling loss).\\
+
+\noindent {\bf Note}: the cost function here is the negative of what Mikolov \textit{et. al.} had in their original paper,
+because we are doing a minimization instead of maximization in our code.\vspace{5mm}
+
+\noindent\rule{\textwidth}{0.4pt}\vspace{5mm}
+
+
+\begin{align}
+\frac{\partial J}{\partial{\boldsymbol v}_{c}} = &\frac{\partial J}{\partial{{\boldsymbol p}_{i}}}\frac{\partial{{\boldsymbol p}_{i}}}{\partial{\boldsymbol x}_{j}}\frac{\partial{{\boldsymbol x}_{i}}}{\partial{\boldsymbol v}_{c}} + \sum^{{K}}_{k=1}\frac{\partial J}{\partial{{\boldsymbol p}_{i}}}\frac{\partial{{\boldsymbol p}_{i}}}{\partial{\boldsymbol z}_{k}}\frac{\partial{{\boldsymbol z}_{k}}}{\partial{\boldsymbol v}_{c}} \\
+=&-(\bf{1- \bf{p}_{i}}){\bf \textrm{U}_{i}} + \sum^{{K}}_{k=1}(\bf{1- \bf{q}_{k}}){\bf \textrm{U}_{k}}                                                              
+\end{align}
+
+\begin{align}
+\frac{\partial J}{\partial{\boldsymbol u}_{j}} = &\frac{\partial J}{\partial{{\boldsymbol p}_{i}}}\frac{\partial{{\boldsymbol p}_{i}}}{\partial{\boldsymbol x}_{j}}\frac{\partial{{\boldsymbol x}_{i}}}{\partial{\boldsymbol u}_{j}} + \sum^{{K}}_{k=1}\frac{\partial J}{\partial{{\boldsymbol p}_{i}}}\frac{\partial{{\boldsymbol p}_{i}}}{\partial{\boldsymbol z}_{k}}\frac{\partial{{\boldsymbol z}_{k}}}{\partial{\boldsymbol u}_{j}}\\
+= &-(\bf{1- \bf{p}_{i}}){\bf \delta_{ij} \textrm{V}_{c}} + \sum^{{K}}_{k=1}(\bf{1- \bf{q}_{k}}){\bf\delta_{ij} \textrm{V}_{c}}                                                              
+\end{align}
+                    
+where, $\delta_{xy}$ = kronecker delta \\
+when $ {x = y} $ = 1 \\
+0 , otherwise. 
+
+
+\clearpage
+\myhwtitle{1}{3(d)}{\solutionsAuthor}
+%TODO FIX this 
+\bigskip
+\noindent Derive the gradients for all of the word vectors for \texttt{skip-gram} and \texttt{CBOW} (optional)
+given a set of context words [$\texttt{word}_{c-\textbf{m}},...,\texttt{word}_{c-\textbf{1}},\texttt{word}_{c},\texttt{word}_{c+\textbf{1}},...,\texttt{word}_{c+\textbf{m}}$ ], where \textbf{m} is the context size. You can denote 
+the `input' and `output' word vectors for $\texttt{word}_{k}$ as ${\boldsymbol v}_{k}$ and ${\boldsymbol u}_{k}$ respectively for
+convenience. \\
+
+\noindent {\bf Hint}: feel free to use $F({\boldsymbol o}, {\boldsymbol v}_{c})$ (where ${\boldsymbol o}$ is the expected word) as a placeholder for $J_{\texttt{softmax-CE}}({\boldsymbol o}, {\boldsymbol v}_{c}, ...)$ or $J_{\texttt{neg-sampling}}({\boldsymbol o}, {\boldsymbol v}_{c}, ...)$ cost functions in this part --- you'll see that this is a useful abstraction for the coding part. That is, your solution may contain terms of the form $\frac{\partial{F_{i}({\boldsymbol o}, {\boldsymbol v}_{c})}}{\partial\lambda}$.\\
+
+\noindent Recall that for \texttt{skip-gram}, the cost for a context centered around $c$ is
+\begin{equation}
+J_{\texttt{skip-gram}} =   \sum_{-m\le j\le m, j\neq0}F({\boldsymbol w}_{c+j}, {\boldsymbol v}_{c})
+\end{equation}
+where ${\boldsymbol w}_{c+j}$ refers to the word at the $j$-th index from the center.\\
+
+\noindent \texttt{CBOW} is slighltly different. Instead of using ${\boldsymbol v}_{c}$ as the prediction vector, we use $\hat{\boldsymbol v}$ defined below. For (a simpler variant of) \texttt{CBOW}, we sum up the input word vectors in the context:\\
+\begin{equation}
+\hat{\boldsymbol v} = \sum_{-m\le j\le m, j\neq0}{\boldsymbol v}_{c+j}
+\end{equation}
+then the \texttt{CBOW} cost is 
+\begin{equation}
+J_{\texttt{CBOW}}(\texttt{word}_{c-\textbf{m}} ,...,\texttt{word}_{c+\textbf{m}}) = F({\boldsymbol w}_{c}, \hat{\boldsymbol v})
+\end{equation}
+\noindent\textbf{Note}: To be consistent with the $\hat{\boldsymbol v}$ notation such as for the code portion, for \texttt{skip-gram} $\hat{\boldsymbol v} = {\boldsymbol v_{c}}$
+
+\vspace{5mm}
+\noindent\rule{\textwidth}{0.4pt}\vspace{5mm}
+
+
+
+\noindent For skip-gram:
+\begin{equation}
+\frac {\partial {J_{\texttt{skip-gram}}}} {\partial U}  =   \sum_{-m\le j\le m, j\neq0}\frac {\partial{ F({\boldsymbol w}_{c+j}, {\boldsymbol v}_{c})}}{\partial {U}} 
+\end{equation}
+
+\begin{equation}
+\frac {\partial {J_{\texttt{skip-gram}}}} {\partial v_{c}}  =   \sum_{-m\le j\le m, j\neq0}\frac {\partial{ F({\boldsymbol w}_{c+j}, {\boldsymbol v}_{c})}}{\partial {v}_{c}} 
+\end{equation}
+
+\begin{equation}
+\frac {\partial {J_{\texttt{skip-gram}}}} {\partial v_{i}}  =  0 , For i \neq c
+\end{equation}
+
+
+
+
+\noindent For CBOW:
+
+\begin{equation}
+\frac {\partial {J_{\texttt{CBOW}}}} {\partial U}  = \frac {\partial{ F({\boldsymbol w}_{c}, {\boldsymbol {\hat{v}}})}} {\partial {U}} 
+\end{equation}
+
+\begin{equation}
+\frac {\partial {J_{\texttt{CBOW}}}} {\partial {v}_{j}}  = \frac {\partial{ F({\boldsymbol w}_{c}, {\boldsymbol {\hat{v}}})}} {\partial {v}} 
+\end{equation}
+
+\begin{equation}
+\frac {\partial {J_{\texttt{CBOW}}}} {\partial v_{j}}  =  0 , For i \neq c
+\end{equation}
 
 
 

@@ -15,7 +15,8 @@ def normalizeRows(x):
     """
 
     ### YOUR CODE HERE
-    raise NotImplementedError
+    row_sums = np.linalg.norm(x, axis = 1, keepdims = True)
+    x = x / row_sums[:]
     ### END YOUR CODE
 
     return x

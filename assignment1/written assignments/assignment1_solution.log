@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.3.9)  16 MAY 2017 16:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.3.9)  22 MAY 2017 21:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -951,23 +951,66 @@ Underfull \hbox (badness 10000) in paragraph at lines 366--368
 ] [9
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 416.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 416.
+Underfull \hbox (badness 10000) in paragraph at lines 420--422
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 423--426
+
+ []
+
+[10
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 452--456
+
+ []
+
+
+Overfull \hbox (17.15707pt too wide) in paragraph at lines 457--458
+\OT1/cmr/bx/n/12 Hint\OT1/cmr/m/n/12 : feel free to use $\OML/cmm/m/it/12 F\OT1
+/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; [][]\OT1/cmr/m/n/12 )$ (where $[]$ is the ex-
+pected word) as a place-holder for $\OML/cmm/m/it/12 J[]\OT1/cmr/m/n/12 ([]\OML
+/cmm/m/it/12 ; [][]; :::\OT1/cmr/m/n/12 )$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--458
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--464
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 465--466
+
+ []
+
+[11
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 515.
+ [12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 515.
  (./assignment1_solution.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 416.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 416.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 515.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 515.
 Package rerunfilecheck Info: File `assignment1_solution.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 416.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 515.
  ) 
 Here is how much of TeX's memory you used:
- 19827 strings out of 494985
- 353353 string characters out of 6180357
+ 19847 strings out of 494985
+ 353589 string characters out of 6180357
  489852 words of memory out of 5000000
- 22522 multiletter control sequences out of 15000+600000
- 12864 words of font info for 48 fonts, out of 8000000 for 9000
+ 22524 multiletter control sequences out of 15000+600000
+ 13200 words of font info for 50 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 56i,16n,61p,452b,1310s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,16n,61p,568b,1310s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
@@ -982,11 +1025,12 @@ amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on assignment1_solution.pdf (9 pages, 190311 bytes).
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on assignment1_solution.pdf (12 pages, 210422 bytes).
 PDF statistics:
- 194 PDF objects out of 1000 (max. 8388607)
- 165 compressed objects within 2 object streams
- 71 named destinations out of 1000 (max. 500000)
+ 228 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
+ 88 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
