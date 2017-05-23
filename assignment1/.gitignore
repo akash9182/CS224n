@@ -3,3 +3,7 @@ utils/
 *.npy
 *.pyc
 *.gz
+*.pkl
+*.tar.gz
+__pycache__
+
