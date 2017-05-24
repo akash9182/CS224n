@@ -311,6 +311,12 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+INPUT ../q4_reg_v_acc.png
+INPUT ../q4_reg_v_acc.png
+INPUT ../q4_reg_v_acc.png
+INPUT ../q4_dev_conf.png
+INPUT ../q4_dev_conf.png
+INPUT ../q4_dev_conf.png
 INPUT assignment1_solution.aux
 INPUT ./assignment1_solution.out
 INPUT ./assignment1_solution.out

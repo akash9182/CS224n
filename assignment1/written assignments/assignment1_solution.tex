@@ -506,8 +506,124 @@ J_{\texttt{CBOW}}(\texttt{word}_{c-\textbf{m}} ,...,\texttt{word}_{c+\textbf{m}}
 \begin{equation}
 \frac {\partial {J_{\texttt{CBOW}}}} {\partial v_{j}}  =  0 , For i \neq c
 \end{equation}
+\clearpage
+
+\myhwtitle{1}{4(b)}{\solutionsAuthor}
+\bigskip
+\noindent Explain in fewer than three sentences why we want to introduce regularization when doing classification (in fact, most machine learning tasks).\vspace{5mm}
+
+\noindent\rule{\textwidth}{0.4pt}\vspace{5mm}
+Regularization helps prevent over-fitting of training dataset. Simply put it helps to avoid model from memorizing the dataset and instead help to learn features well. 
+\clearpage
 
 
+
+\myhwtitle{1}{4(d)}{\solutionsAuthor}
+
+\bigskip
+\noindent Fill in the hyperparameter selection code in \texttt{q4\_sentiment.py} to search for the `optimal' regularization parameter. \textbf{What values did you select? Report your train, dev, and test accuracies. Justify your hyperparameter search methodology in at most one sentence.}. \\
+
+\noindent\textbf{Note:} you should be able to attain at least 30\% accuracy on dev.\vspace{5mm}
+
+\noindent\rule{\textwidth}{0.4pt}\vspace{5mm}
+
+\begin{table}[!h!p]
+\begin{center}
+\begin{tabular}{c c c c}
+\hline\hline
+
+
+Reg   &  Train &  Dev & Test \\
+\hline
+1.00E-06 & 30.993 & 32.516 & 30.407 \\
+1.00E-05 & 31.051 & 32.516  & 30.362 \\
+1.00E-04 & 30.993 & 32.698  & 30.362 \\
+1.00E-03 & 31.156 & 32.698  & 30.271 \\
+1.00E-02 & 30.946 & 32.334  & 29.910 \\
+1.00E-01 & 30.290 & 31.880  & 29.819 \\
+1.00E+00 & 28.897 & 29.609  & 27.149 \\
+1.00E+01 & 27.247 & 25.522  & 23.077 \\
+1.00E+02 & 27.247 & 25.522  & 23.032 \\
+1.00E+03 & 27.247 & 25.522  & 23.032 \\
+1.00E+04 & 27.247 & 25.522  & 23.032 \\
+1.00E+05 & 27.247 & 25.522  & 23.032 \\
+
+\hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{itemize}
+\item The word vectors are trained on massive data (wikipedia), thus hold more
+    information
+\item GloVe represents words better than word2vec.
+\item GloVe is a "count-based" model, they learn their vectors by essentially doing dimensionality reduction on the co-occurrence counts matrix.
+\end{itemize}
+
+\clearpage
+
+\myhwtitle{1}{4(e)}{\solutionsAuthor}
+
+\bigskip
+\noindent Plot the classification accuracy on the train and dev set with respect to the regularization value, using a logarithmic scale on the x-axis. This should have been done automatically. \textbf{Include \texttt{q4\_reg\_acc.png} in your homework write up.} Briefly explain in at most three sentences what you see in the plot.\vspace{5mm}
+
+\noindent\rule{\textwidth}{0.4pt}\vspace{5mm}
+
+\begin{figure}[!h!p]
+\begin{center}
+\includegraphics[scale=0.5]{../q4_reg_v_acc.png}
+\end{center}
+Regulariztion helps avoiding overfitting of the model.
+As we increase regularization parameter the model losses its accuracy.
+\end{figure}
+
+
+\clearpage
+
+\myhwtitle{1}{4(f)}{\solutionsAuthor}
+
+
+\bigskip
+\noindent We will now analyze errors that the model makes (with pretrained GloVe vectors). When you ran python q4 sentiment.py --pretrained, two files should have been generated. Take a look at q4 dev conf.png and include it in your homework writeup. Interpret the confusion matrix in at most three sentences.
+\begin{figure}[!h!p]
+\begin{center}
+\includegraphics[scale=0.5]{../q4_dev_conf.png}
+\end{center}
+The prediction for extremums looks pretty coreect.  
+ Whereas for negative, neturals and positive examples the model misjudged.
+ Overall the quality looks decent.
+\end{figure}
+
+\clearpage
+
+\myhwtitle{1}{4(g)}{\solutionsAuthor}
+
+
+\bigskip
+\noindent Next, take a look at q4 dev pred.txt. Choose 3 examples where your classifier made errors
+and briefly explain the error and what features the classifier would need to classify the example correctly
+(1 sentence per example). Try to pick examples with different reasons.
+
+\begin{enumerate}
+
+\item Some cold/negative words in the sentence cause the whole sentence to be predicted as negative, while the sentence has a positive context.
+True   Predicted
+\begin{itemize}
+
+ \item ++   -   this flick is about as cool and crowd-pleasing as a documentary can get 
+\end{itemize}
+\item Some negative words doesn't contribute to the sentiment or they are countered as double negatives
+\begin{itemize}
+\item -   +   an absurdist comedy about alienation , separation and loss .
+\end{itemize}
+
+\item The positive words are given more importance then overall meaning of sentence.
+\begin{itemize}
+
+\item 0   ++   a beautifully made piece of unwatchable drivel
+\end{itemize}
+
+\end{enumerate}
 
 
 \end{document}
