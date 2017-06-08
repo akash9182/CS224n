@@ -229,6 +229,25 @@ Feed dictionaries - These are the values in batches that are input to while trai
 
 \noindent\rule{\textwidth}{0.4pt}
 
-\clearpage
 
+\myhwtitle{2}{2 (a)}{\solutionsAuthor}
+\begin{table}[!h!p]
+\centering
+\begin{tabular}{l|l|l|l}
+  stack&buffer&new dependency&transition \\ \hline
+  ... & ... & ... & ... \\
+  \ [ROOT, parsed] & [this, sentence, correctly] & parsed $\rightarrow$ I & \verb|LEFT-ARC| \\
+  \ [ROOT, parsed, this] & [sentence, correctly] &   & \verb|SHIFT| \\
+  \ [ROOT, parsed, this, sentence] & [correctly] &  &  \verb|SHIFT| \\
+  \ [ROOT, parsed, sentence] & [correctly] & sentence $\rightarrow$ this & \verb|LEFT-ARC| \\
+  \ [ROOT, parsed] & [correctly] & parsed $\rightarrow$ sentence & \verb|RIGHT-ARC| \\
+  \ [ROOT, parsed, correctly] & [] &  &  \verb|SHIFT| \\
+  \ [ROOT, parsed] & [] & parsed $\rightarrow$ correctly &  \verb|RIGHT-ARC| \\
+  \ [ROOT] & [] & ROOT $\rightarrow$ parsed & \verb|RIGHT-ARC|
+\end{tabular}
+\end{table}
+\clearpage
+\myhwtitle{2}{2 (b)}{\solutionsAuthor}
+\bigskip
+A sentence containing n words will be parsed in 2n ways. It will take 1 step to shift the word and 1 step to do transition and there are n words. Hence, 2n ways.
 \end{document}

@@ -18,9 +18,14 @@ class PartialParse(object):
                       Your code should not modify the sentence.
         """
         # The sentence being parsed is kept for bookkeeping purposes. Do not use it in your code.
-        self.sentence = sentence
-
+        
         ### YOUR CODE HERE
+        self.sentence = sentence
+        self.stack = ["root"] 
+        self.buffer = list(sentence)
+        self.dependencies = []
+
+
         ### END YOUR CODE
 
     def parse_step(self, transition):
@@ -31,6 +36,18 @@ class PartialParse(object):
                         and right-arc transitions.
         """
         ### YOUR CODE HERE
+        if transition == "S":
+            self.stack.append(self.buffer.pop(0))
+        elif transition == "LA":
+            Wj = self.stack.pop()
+            Wi = self.stack.pop()
+            self.dependencies.append((Wj,Wi))
+            self.stack.append(Wj)
+        else :
+            Wj = self.stack.pop()
+            Wi = self.stack.pop()
+            self.dependencies.append((Wi,Wj))
+            self.stack.append(Wi) 
         ### END YOUR CODE
 
     def parse(self, transitions):
