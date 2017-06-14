@@ -97,7 +97,14 @@ def make_windowed_data(data, start, end, window_size = 1):
     windowed_data = []
     for sentence, labels in data:
     ### YOUR CODE HERE (5-20 lines)
-
+        length =  len(sentence)
+        sentence = [start] * window_size + sentence + [end] * window_size
+        for i in range(length):
+            idx = i + window_size
+            point = []
+            for x in xrange(idx - window_size,idx + window_size + 1):
+                point = point + sentence[x]
+            windowed_data.append((point, labels[i]))                
     ### END YOUR CODE
     return windowed_data
 

@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1497463582 "assignment3.tex" "assignment3.pdf" "assignment3" 1497463582
+["pdflatex"] 1497464380 "assignment3.tex" "assignment3.pdf" "assignment3" 1497464380
   "/etc/texmf/web2c/texmf.cnf" 1489000050 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -98,11 +98,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1489036584 80420 2ccc9c96b7b58c4e7cc3884cc97eb042 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1489036577 856210 fd0f62b246aa7267216700a7d68caef0 ""
-  "assignment3.aux" 1497463582 752 5e242ae80661ce4bc2f8a65b36c8b6c6 ""
-  "assignment3.out" 1497463582 52 fd14a86355832b8a1386bd1b07ca9041 ""
-  "assignment3.tex" 1497463580 3166 7952bac6a21221fbb1e11dc718e92738 ""
+  "assignment3.aux" 1497464380 752 5e242ae80661ce4bc2f8a65b36c8b6c6 ""
+  "assignment3.out" 1497464380 52 fd14a86355832b8a1386bd1b07ca9041 ""
+  "assignment3.tex" 1497464376 3218 4db689226226b175b164467f53688b49 ""
   (generated)
   "assignment3.pdf"
-  "assignment3.aux"
-  "assignment3.log"
   "assignment3.out"
+  "assignment3.log"
+  "assignment3.aux"
