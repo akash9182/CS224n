@@ -1,0 +1,125 @@
+\documentclass{article}[11pt]
+\usepackage{sectsty}
+\usepackage{enumerate}
+\usepackage{bm}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{float, graphicx}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{ex}{Exercise}
+\newtheorem{defi}{Definition}
+\newtheorem{hw}{Problem}
+\newenvironment{sol}
+{\par\vspace{3mm}\noindent{\it Solution}.}
+{\qed}
+
+\newcommand{\ov}{\overline}
+\newcommand{\cb}{{\cal B}}
+\newcommand{\cc}{{\cal C}}
+\newcommand{\cd}{{\cal D}}
+\newcommand{\ce}{{\cal E}}
+\newcommand{\cf}{{\cal F}}
+\newcommand{\ch}{{\cal H}}
+\newcommand{\cl}{{\cal L}}
+\newcommand{\cm}{{\cal M}}
+\newcommand{\cp}{{\cal P}}
+\newcommand{\cz}{{\cal Z}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\dist}{\mbox{\rm dist}}
+\newcommand{\bn}{{\mathbf N}}
+
+\newcommand{\bW} { \bm{W} }
+\newcommand{\bU} { \bm{U} }
+\newcommand{\bb} { \bm{b} }
+\newcommand{\bz} { \bm{z} }
+\newcommand{\bmf} { \bm{f} }
+\newcommand{\bx} { \bm{x} }
+\newcommand{\by} { \bm{y} }
+\newcommand{\byhat} { \bm{\hat{y}} }
+\newcommand{\btheta} { \bm{\theta} }
+\newcommand{\bg} { \bm{g} }
+\newcommand{\bh} { \bm{h} }
+\newcommand{\bL} { \bm{L} }
+\newcommand{\bI} { \bm{I} }
+\newcommand{\bdelta} { \bm{\delta} }
+\newcommand{\smx} { \text{softmax} }
+\newcommand{\relu} { \text{ReLU} }
+\newcommand{\sgn} { \text{sgn} }
+\newcommand{\diag} { \text{diag} }
+\newcommand{\be} { \bm{e}}
+\newcommand{\bet}[1][t]{ \be^{(#1)}}
+\newcommand{\bxt}[1][t]{ \bx^{(#1)}}
+\newcommand{\bht}[1][t]{ \bh^{(#1)}}
+\newcommand{\byt}[1][t]{ \by^{(#1)}}
+
+
+\newcommand{\byhatt}[1][t]{ \byhat^{(#1)}}
+\setlength{\parindent}{0pt}
+% \setlength{\parskip}{2ex}
+\newenvironment{proofof}[1]{\bigskip\noindent{\itshape #1. }}{\hfill$\Box$\medskip}
+
+\usepackage{enumerate,fullpage,proof,color,hyperref}
+
+
+\newcommand{\todo}[1] { \color{red}[TODO: #1]\color{black} }
+
+
+\newcommand{\alns}[1] {
+	\begin{align*} #1 \end{align*}
+}
+\newcommand{\pd}[2] {
+  \frac{\partial #1}{\partial #2}
+}
+
+\setlength{\parindent}{0pt}
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{11}{0}{\vspace{-10pt}}\selectfont}
+
+\title{CS224N Assignment 3}
+\author{Kangwei Ling}
+
+\begin{document}
+\maketitle
+
+\section{A window into NER}
+
+\begin{enumerate}[(a)]
+\item 
+	\begin{enumerate}[(i.)]
+	\item 
+		\begin{itemize}
+		\item \textbf{Papa Johns} make the best pizzas in America.
+		\item \textbf{The Goldman Sachs} are the leading global investment banking, securities and investment management firm.
+		\end{itemize}
+	\item 
+		The word itself might be ambiguous and it may convey different meaning.
+		Thus using features, gives an overall meaning.
+		
+	\item
+		\begin{itemize}
+		\item Part of speech (POS) tags
+		\item Context words  
+		\end{itemize}
+		\end{enumerate}
+\item
+	\begin{enumerate}[(i.)]
+	\item 
+		\begin{align*}
+		\bet &: (2w+1)D \\
+		\bW  &: (2w+1)DH \\
+		\bU  &: HC
+		\end{align*}
+	\end{enumerate}
+\end{enumerate}
+
+\end{document}
