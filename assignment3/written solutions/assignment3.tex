@@ -159,14 +159,41 @@ x : Papa Johns make the best pizzas in America.
 y*: ORG  ORG   O	O 	O	O	O     LOC                                          
 y': PER  PER   O    O   O    O      O  LOC
 \end{verbatim}
-\item Misclassification of LOC as PER
+\item Misclassification of LOC as ORG
 \begin{verbatim}
-x : Washington was humble. 
-y*: PER      	O 	O                       
-y': LOC        O   O   
+x : New York city. 
+y*: LOC  LOC 	O                       
+y': ORG LOC  O  
 \end{verbatim}
 \end{itemize}
  \end{enumerate}
+
+\end{enumerate}
+
+\section{Recurrent neural nets for NER}
+\begin{enumerate}[(a)]
+\item
+  \begin{enumerate}[i.]
+  \item Rnn has an extra parameter of $H^2$ for $W_{h}$ and a parameter of $(2W + 1)$ less for $W_{x}$
+ \item $T(VD + H^2 + DH + 2H + HC + C)$
+\end{enumerate}
+ \item 
+\item it is hard to directly optimze
+for F 1 because it requires predictions from the entire corpus to compute, making it very
+difficult to batch and parallelize. 
+\item \verb|q2_rnn.py|
+\item 
+	\begin{enumerate}[i.]
+	\item Without masking, the loss and gradient of the model would be evaluated on many non existential data. The gradients from the padding input would flow through the hidden state and affect the learning of the parameters.
+
+\item \verb|q2_rnn.py|
+
+\end{enumerate}
+\item \verb|q2_rnn.py|
+\item \verb|q2_rnn.py|
+
+
 \end{enumerate}
 \end{document}
+
 
