@@ -121,6 +121,52 @@
 		\end{align*}
 		\item \[T \cdot [(2w+1)D +  (2w+1)DH + HC + C]\]
 	\end{enumerate}
-\end{enumerate}
 
+\item \verb|q1_windoq.py|
+\item
+	\begin{enumerate}[i.]
+	\item BEST $F_1$ score:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{c|c|c|c}
+		&P&R&$F_1$ \\ \hline \hline
+		Entity-level & 0.81 & 0.85 & 0.83 \\ \hline
+	\end{tabular}
+	\end{table}
+
+	Confusion Matrix
+	\begin{table}[H]
+		\centering
+		\caption{My caption}
+		\label{my-label}
+		\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		go\textbackslash gu & Per & Org & Loc & Misc & 0 
+		\\ \hline
+		PER    	&	2937.00  & 	60.00  &	81.00   &	17.00   &	54.00 \\ \hline  
+		ORG     &	129.00  &	1671.00 &	117.00  &	57.00   &	118.00  \\ \hline
+		LOC     &	39.00   &	107.00  &	1861.00 &	32.00   &	55.00   \\ \hline
+		MISC    &	35.00   &	72.00   &	43.00   &	1011.00 &	107.00  \\ \hline
+		O       &	38.00   &	55.00   &	19.00   &	30.00   &	42617.00 \\ \hline
+		\end{tabular}
+		\end{table}
+ Mostly the model makes mistakes by recognizing PER as LOC, ORG as PER, LOC as ORG.
+ \item The training data is skewed, as most of the words are O. 
+ \begin{itemize}
+ 	\item Misclassification of ORG as PER
+\begin{verbatim}
+x : Papa Johns make the best pizzas in America. 
+y*: ORG  ORG   O	O 	O	O	O     LOC                                          
+y': PER  PER   O    O   O    O      O  LOC
+\end{verbatim}
+\item Misclassification of LOC as PER
+\begin{verbatim}
+x : Washington was humble. 
+y*: PER      	O 	O                       
+y': LOC        O   O   
+\end{verbatim}
+\end{itemize}
+ \end{enumerate}
+\end{enumerate}
 \end{document}
+

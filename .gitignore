@@ -2,6 +2,7 @@ assignment2/data/
 assignment2/utils/
 assignment3/data/
 assignment3/utils/
+assignment3/results/
 *.pyc
 
 #latex files
