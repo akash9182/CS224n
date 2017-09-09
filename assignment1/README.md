@@ -8,6 +8,7 @@ Errors that the model makes (with pretrained GloVe vectors)
 
 Some of the predictions and true labels:
 
-True label  Prediction
+| True Labels    | Prediction           | Sentence  |
+| ------------- |:-------------:| -----:|
+| 4      | 4 |a warm , funny , engaging film |
 
-- 4             	4	      - a warm , funny , engaging film 
