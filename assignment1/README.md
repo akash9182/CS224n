@@ -1,4 +1,7 @@
 Word2Vec
-![Word Vectors](https://github.com/akash9182/CS224n/blob/master/assignment1/q3_word_vectors.png?raw=true "Optional Title")
 
-![Errors that the model makes (with pretrained GloVe vectors)](https://github.com/akash9182/CS224n/blob/master/assignment1/q4_reg_v_acc.png?raw=true "Optional Title")
+###Word Vectors
+![Alt text](https://github.com/akash9182/CS224n/blob/master/assignment1/q3_word_vectors.png?raw=true "Word vectors")
+
+###Errors that the model makes (with pretrained GloVe vectors)
+![Alt text](https://github.com/akash9182/CS224n/blob/master/assignment1/q4_reg_v_acc.png?raw=true "Errors")
